@@ -1,15 +1,35 @@
 set nocompatible
+syntax enable
 syntax on
+set expandtab
 set tabstop=4
-set cindent
+set shiftwidth=4
+
+set ai
 set nu
+
+set cursorline	"光标所在位置加下划线
+set showmatch	"代码匹配
+set laststatus=2
+
+set bs=2 "insert模式下退格键删除
+
+set autoread
+set ignorecase
+set foldmethod=syntax
+
+"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
+let mapleader = ','
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+nnoremap <leader>t : tabe<CR>
 
 " 文件编码配置"
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fenc=utf-8
 set autoindent
 
-set relativenumber
+"set relativenumber
 
 "插入模式下移动
 inoremap <c-j> <down>
@@ -34,6 +54,7 @@ Bundle 'gmarik/vundle'
 
 " vim-scripts repos
 Bundle 'coffee.vim'
+Bundle 'vim-coffee-script'
 
 "相较于Command-T等查找文件的插件，ctrlp.vim最大的好处在于没有依赖，干净利落
 Bundle 'ctrlp.vim'
@@ -62,6 +83,19 @@ Bundle 'Tabular'
 "迄今位置最好的自动VIM自动补全插件了吧
 "Vundle的这个写法，是直接取该插件在Github上的repo
 "Bundle 'Valloric/YouCompleteMe'
+
+Bundle 'taglist.vim'
+Bundle 'taglist-plus'
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+Bundle 'winmanager'
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
+" buffer 管理，<C-Tab> <C-S-Tab>循环切换 
+Bundle 'minibufexpl.vim'
+let g:miniBufExplMapCTabSwitchBufs=1
 
 
 filetype plugin indent on 
